@@ -8,10 +8,11 @@ async function readEvent(fileName) {
 }
 
 async function main() {
-  const topic = process.argv[2];
-  const fileName = process.argv[3];
-  const count = process.argv[4] || 1;
+  //const topic = process.argv[2];
+  const fileName = process.argv[2];
+  const count = process.argv[3] || 1;
 
+  // const event = await readEvent(`events/${fileName}.json`);
   const event = await readEvent(`events/${fileName}.json`);
 
   const kafka = new Kafka({
@@ -23,16 +24,16 @@ async function main() {
 
   const messages = Array.from(Array(count), () => ({
     key: uuid(),
-    value: JSON.stringify(event),
+    value: JSON.stringify(event.data),
   }));
 
   await producer.connect();
   await producer.send({
-    topic,
+    topic: event.topic,
     messages,
   });
 
   await producer.disconnect();
 }
 
-await main();
+main();
