@@ -13,14 +13,13 @@
   "data":{}
 }
 ```
-
     > |- src  
-      &nbsp;&nbsp;&nbsp;&nbsp;...   
+          ...   
       |- events  
-      &nbsp;&nbsp;&nbsp;&nbsp;|- on-boarding.json  
-      &nbsp;&nbsp;&nbsp;&nbsp;|- register.json   
-      &nbsp;&nbsp;&nbsp;&nbsp;|- event-name.json    
-      &nbsp;&nbsp;&nbsp;&nbsp;...
+        |- on-boarding.json  
+        |- register.json   
+        |- event-name.json    
+          ...
 
 3. Invocar al script con el siguiente comando.  
 `yarn run start  <event-name>`  
